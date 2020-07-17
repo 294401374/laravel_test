@@ -16,3 +16,26 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('user/{id}', 'UserController@show');
+
+Route::get('test1', function(\Illuminate\Http\Request $request){
+    dump($request->path());
+    dump($request->url());
+    dump($request->fullUrl());
+    dump($request->method());
+    $all = $request->all();
+    dump($all);
+   $input = $request->input('input');
+   dump($input);
+});
+
+Route::post('test2', function(){
+   dump(1111);
+    // dump($request->url());
+    // dump($request->fullUrl());
+    // dump($request->method());
+    // $all = $request->all();
+    // dump($all);
+    // $input = $request->input('input');
+    // dump($input);
+});
