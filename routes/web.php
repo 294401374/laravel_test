@@ -16,7 +16,14 @@ use \Illuminate\Http\Request;
 Route::get('/', function () {
     return view('welcome');
 });
+// 3.Event这里调用
+Route::get('event/{id}', function($id){
+    event(new \App\Events\OrderShipped($id));
+    // dump($orderShipped);
+    dump($id);
+})  ;
 
+// 2.Collecttion 的用法
 Route::get('collection', function(\Illuminate\Support\Collection $collection){
     // 倒着来
     // -----------------------------
@@ -176,12 +183,9 @@ Route::get('collection', function(\Illuminate\Support\Collection $collection){
     // 可以做sku的一些相关
     dump(collect([1, 2])->crossJoin(['a', 'b'])->all());
     dump(collect([1, 2])->crossJoin($collect)->all());
-    
-
-    
-    
-    
 });
+
+//1. controller
 Route::get('user/{id}', 'UserController@show');
 
 Route::get('test1', function(\Illuminate\Http\Request $request){
