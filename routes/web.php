@@ -26,6 +26,11 @@ Route::get('collection', function(\Illuminate\Support\Collection $collection){
         ['name' => 'jam' , 'age' => 12],
         ['name' => 'dean', 'age' => 18],
     ]);
+    $every = $collect->every(function ($item, $key){
+        return $item['age'] > 9;
+    });
+    dump($every);
+    
     dump($collect->groupBy('name')->toArray());
     $collect = collect([
         'four' => 40,
