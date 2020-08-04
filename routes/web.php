@@ -17,11 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 // 3.Event这里调用
-Route::get('event/{id}', function($id){
-    event(new \App\Events\OrderShipped($id));
-    // dump($orderShipped);
-    dump($id);
-})  ;
+Route::get('event/{id}', 'EventController@OrderShippedEvent');
 
 // 2.Collecttion 的用法
 Route::get('collection', 'CollectionController@collectionMethed');
