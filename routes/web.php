@@ -16,6 +16,8 @@ use \Illuminate\Http\Request;
 Route::get('/', function () {
     return view('welcome');
 });
+// 4.helpers
+Route::get('helpers', 'HelpersController@helpMethod');
 // 3.Event这里调用
 Route::get('event/{id}', 'EventController@OrderShippedEvent');
 
