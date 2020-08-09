@@ -16,6 +16,10 @@ use \Illuminate\Http\Request;
 Route::get('/', function () {
     return view('welcome');
 });
+// 5. Eloquent模型追加新字段到返回值中。
+Route::get('append', function(){
+   return App\User::where('id', '<',10)->get();
+});
 // 4.helpers
 Route::get('helpers', 'HelpersController@helpMethod');
 // 3.Event这里调用
